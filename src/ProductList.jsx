@@ -3,11 +3,15 @@ import './ProductList.css'
 import CartItem from './CartItem';
 import { useDispatch } from 'react-redux';
 import { addItem } from './CartSlice';
+dispatch(addItem(product));
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
     const [addedToCart, setAddedToCart] = useState({});
+    const calculateTotalQuantity = () => {
+        return CartItem ? CartItem.reduce((total, item) => total + item.quantity, 0) : 0;
+         };
 
     const plantsArray = [
         {
@@ -265,6 +269,7 @@ function ProductList({ onHomeClick }) {
         ...prevState,
         [product.name]: true,
         }));
+        dispatch(updateQuantity({ name: item.name, quantity: newQuantity }));
     };
 
     return (
