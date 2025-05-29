@@ -14,15 +14,18 @@
   }
   
   .about-us-description {
-    font-size: 18px;
+    font-size: 30vw;
     color: #666;
     margin-bottom: 30px;
-    text-align: center;
+    text-align: justify;
+    padding: 3px;
   }
   
   .about-us-content {
-    font-size: 18px;
+    font-size: 30vw;
     margin-bottom: 20px;
+    padding: 3px;
+    text-align: justify;
   }
   .plant_logo_right{
     text-align: right;
