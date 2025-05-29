@@ -15,8 +15,7 @@ const CartItem = ({ onContinueShopping }) => {
       totalCost += unitPrice * item.quantity;
     });
     return totalCost.toFixed(2);
-  };  
-  }
+  };
 
   const handleContinueShopping = (e) => {
     onContinueShopping(e);
@@ -34,12 +33,13 @@ const CartItem = ({ onContinueShopping }) => {
     if (item.quantity > 1) {
       dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
     } else {
-      dispatch(removeItem(item));
+        dispatch(removeItem({ name: item.name }));
+
     }
   };
 
   const handleRemove = (item) => {
-    dispatch(removeItem(item));
+    dispatch(removeItem({ name: item.name }));
     
   };
 
