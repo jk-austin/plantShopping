@@ -10,7 +10,7 @@ const CartItem = ({ onContinueShopping }) => {
   // Calculate total amount for all products in the cart
   const calculateTotalAmount = () => {
     let totalCost = 0;
-    plants.forEach((item) => {
+    cart.forEach((item) => {
         totalCost += item.cost * item.quantity;
   });
     return totalCost;
@@ -30,14 +30,14 @@ const CartItem = ({ onContinueShopping }) => {
 
   const handleDecrement = (item) => {
     if (item.quantity > 1) {
-      dispatch(decrementItem(item));
+      dispatch(updateQuantity({ name: item.name, quantity: item.quantity - 1 }));
     } else {
       dispatch(removeItem(item));
     }
   };
 
   const handleRemove = (item) => {
-    dispatch(removeItem);
+    dispatch(removeItem(item));
   };
 
   const calculateTotalCost = (item) => {
@@ -78,5 +78,3 @@ const CartItem = ({ onContinueShopping }) => {
 };
 
 export default CartItem;
-
-
